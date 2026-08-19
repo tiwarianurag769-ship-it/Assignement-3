@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+
+
+class Repository<T>
+{
+    private List<T> items = new List<T>();
+
+   
+    public void Add(T item)
+    {
+        items.Add(item);
+    }
+
+   
+    public List<T> GetAll()
+    {
+        return items;
+    }
+}
+
+class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public Student(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+}
+
+
+class Employee
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public Employee(int id, string name)
+    {
+        Id = id;
+        Name = name;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        
+        Repository<Student> studentRepository = new Repository<Student>();
+
+        studentRepository.Add(new Student(1, "Rahul"));
+        studentRepository.Add(new Student(2, "Aman"));
+
+        Console.WriteLine("Students:");
+        foreach (Student student in studentRepository.GetAll())
+        {
+            Console.WriteLine("ID: " + student.Id + ", Name: " + student.Name);
+        }
+
+        
+        Repository<Employee> employeeRepository = new Repository<Employee>();
+
+        employeeRepository.Add(new Employee(101, "Ravi"));
+        employeeRepository.Add(new Employee(102, "Priya"));
+
+        Console.WriteLine("\nEmployees:");
+        foreach (Employee employee in employeeRepository.GetAll())
+        {
+            Console.WriteLine("ID: " + employee.Id + ", Name: " + employee.Name);
+        }
+    }
+}
