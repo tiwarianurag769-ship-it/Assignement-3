@@ -1,0 +1,51 @@
+using System;
+
+class StudentUtility
+{
+   
+    public static double CalculatePercentage(double obtainedMarks, double totalMarks)
+    {
+        return (obtainedMarks / totalMarks) * 100;
+    }
+
+    
+    public static char CalculateGrade(double percentage)
+    {
+        if (percentage >= 90)
+            return 'A';
+        else if (percentage >= 80)
+            return 'B';
+        else if (percentage >= 70)
+            return 'C';
+        else if (percentage >= 60)
+            return 'D';
+        else
+            return 'F';
+    }
+
+   
+    public static double CalculateAttendancePercentage(
+        int attendedDays, int totalDays)
+    {
+        return ((double)attendedDays / totalDays) * 100;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        double percentage =
+            StudentUtility.CalculatePercentage(450, 500);
+
+        char grade =
+            StudentUtility.CalculateGrade(percentage);
+
+        double attendance =
+            StudentUtility.CalculateAttendancePercentage(85, 100);
+
+        Console.WriteLine("Percentage: " + percentage + "%");
+        Console.WriteLine("Grade: " + grade);
+        Console.WriteLine("Attendance: " + attendance + "%");
+    }
+}
