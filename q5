@@ -1,0 +1,59 @@
+using System;
+
+public partial class Vehicle
+{
+    // Properties
+    public string VehicleNumber { get; set; }
+    public string Brand { get; set; }
+    public string Model { get; set; }
+    public int Year { get; set; }
+
+    // Constructor
+    public Vehicle(string vehicleNumber, string brand, string model, int year)
+    {
+        VehicleNumber = vehicleNumber;
+        Brand = brand;
+        Model = model;
+        Year = year;
+    }
+}
+
+public partial class Vehicle
+{
+    // Vehicle Operations
+    public void StartVehicle()
+    {
+        Console.WriteLine("Vehicle started.");
+    }
+
+    public void StopVehicle()
+    {
+        Console.WriteLine("Vehicle stopped.");
+    }
+
+    public void DisplayDetails()
+    {
+        Console.WriteLine("\n--- Vehicle Details ---");
+        Console.WriteLine("Vehicle Number: " + VehicleNumber);
+        Console.WriteLine("Brand: " + Brand);
+        Console.WriteLine("Model: " + Model);
+        Console.WriteLine("Year: " + Year);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Vehicle vehicle = new Vehicle(
+            "UP32AB1234",
+            "Toyota",
+            "Innova",
+            2024
+        );
+
+        vehicle.DisplayDetails();
+        vehicle.StartVehicle();
+        vehicle.StopVehicle();
+    }
+}
