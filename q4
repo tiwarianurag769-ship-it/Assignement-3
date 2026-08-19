@@ -1,0 +1,45 @@
+using System;
+
+sealed class EmployeePayroll
+{
+    private double salary;
+
+
+    public EmployeePayroll(double salary)
+    {
+        this.salary = salary;
+    }
+
+    public double CalculateSalary()
+    {
+        return salary;
+    }
+
+    public double CalculateTax()
+    {
+        return salary * 0.10;
+    }
+
+    public double CalculateNetSalary()
+    {
+        return salary - CalculateTax();
+    }
+
+    public void DisplayPayroll()
+    {
+        Console.WriteLine("Salary: " + CalculateSalary());
+        Console.WriteLine("Tax: " + CalculateTax());
+        Console.WriteLine("Net Salary: " + CalculateNetSalary());
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+ 
+        EmployeePayroll employee = new EmployeePayroll(50000);
+
+        employee.DisplayPayroll();
+    }
+}
