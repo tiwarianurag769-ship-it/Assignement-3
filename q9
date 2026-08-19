@@ -1,0 +1,43 @@
+using System;
+
+static class ApplicationConfiguration
+{
+   
+    public static string DatabaseServer = "localhost";
+    public static string DatabaseName = "UniversityDB";
+    public static string Username = "admin";
+    public static string Password = "12345";
+
+   
+    public static string ApplicationName = "University Management System";
+    public static string Version = "1.0";
+    public static bool EnableLogging = true;
+
+  
+    public static void DisplayConfiguration()
+    {
+        Console.WriteLine("=== Application Configuration ===");
+
+        Console.WriteLine("Application Name: " + ApplicationName);
+        Console.WriteLine("Version: " + Version);
+        Console.WriteLine("Logging Enabled: " + EnableLogging);
+
+        Console.WriteLine("\n=== Database Configuration ===");
+
+        Console.WriteLine("Server: " + DatabaseServer);
+        Console.WriteLine("Database: " + DatabaseName);
+        Console.WriteLine("Username: " + Username);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        
+        ApplicationConfiguration.DisplayConfiguration();
+
+        Console.WriteLine("\nDatabase Server: " +
+            ApplicationConfiguration.DatabaseServer);
+    }
+}
