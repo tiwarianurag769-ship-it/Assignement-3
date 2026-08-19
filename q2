@@ -1,0 +1,70 @@
+using System;
+
+class BankAccount
+{
+    
+    private string accountNumber;
+    private string holderName;
+    private double balance;
+
+    
+    public BankAccount(string accountNumber, string holderName, double balance)
+    {
+        this.accountNumber = accountNumber;
+        this.holderName = holderName;
+        this.balance = balance;
+    }
+
+    
+    public void Deposit(double amount)
+    {
+        if (amount > 0)
+        {
+            balance += amount;
+            Console.WriteLine("Amount deposited successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid deposit amount.");
+        }
+    }
+
+    
+    public void Withdraw(double amount)
+    {
+        if (amount > 0 && amount <= balance)
+        {
+            balance -= amount;
+            Console.WriteLine("Amount withdrawn successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Insufficient balance or invalid amount.");
+        }
+    }
+
+   
+    public void DisplayAccountDetails()
+    {
+        Console.WriteLine("\n--- Account Details ---");
+        Console.WriteLine("Account Number: " + accountNumber);
+        Console.WriteLine("Holder Name: " + holderName);
+        Console.WriteLine("Balance: " + balance);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        
+        BankAccount account = new BankAccount("123456789", "Rahul", 10000);
+
+        account.DisplayAccountDetails();
+
+        account.Deposit(5000);
+        account.Withdraw(3000);
+
+        account.DisplayAccountDetails();
+    }
+}
